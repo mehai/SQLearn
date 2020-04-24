@@ -1,0 +1,15 @@
+get_filename_component(SQLEARN_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+include(CMakeFindDependencyMacro)
+
+list(APPEND CMAKE_MODULE_PATH ${SQLEARN_CMAKE_DIR})
+# NOTE: to find FindRapidJSON.cmake
+#find_dependency(RapidJSON @MIN_RapidJSON_VERSION@)
+#list(REMOVE_AT CMAKE_MODULE_PATH -1)
+
+#find_dependency(boost_regex @MIN_BOOST_VERSION@)
+
+if(NOT TARGET SQLearn::SQLearn)
+    include("${SQLEARN_CMAKE_DIR}/SQLearnTargets.cmake")
+endif()
+
+set(SQLEARN_lIBRARIES SQLearn::SQLearn)
