@@ -1,11 +1,17 @@
 #pragma once
 
 #include <string>
+#include <iostream>
 
 namespace sqlearn
 {
 	/**
-	 * test
+	 * Initializes necessary infrastructure for query execution
 	 */
-	int test(void);
+	void init(void);
+
+	/**
+	 * executes given SQL query and returns result.
+	 */
+	std::string execute(const std::string& query);
 }

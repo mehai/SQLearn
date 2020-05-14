@@ -19,6 +19,8 @@ list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_SOURCE_DIR}/cmake)
 add_library(sqlearn
     src/sqlearn.cpp
     src/utils.h
+    src/headers/memory/buffer_pool_engine.h
+    src/memory/buffer_pool_engine.cpp
 )
 
 #Add an alias so that library can be used inside the build tree, e.g. when testing

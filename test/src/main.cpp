@@ -3,5 +3,7 @@
 
 int main(int argc, char** argv)
 {
-	std::cout << sqlearn::test() << std::endl;
+	sqlearn::init();
+	
+	std::cout << sqlearn::execute("BUFFER TEST") << std::endl;
 }

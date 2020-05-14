@@ -1,13 +1,23 @@
 #include "sqlearn/sqlearn.h"
+#include "headers/memory/buffer_pool_engine.h"
 
 #include <iostream>
 
-#include "utils.h"
-
 namespace sqlearn
 {
-	int test(void)
+
+	static BufferPoolEngine *bufferPool;
+
+	void init()
 	{
-		return 1;
+		bufferPool = new BufferPoolEngine (10);
+	}
+
+	std::string execute(const std::string& query)
+	{
+		if (query == "BUFFER TEST") {
+			std::cout << "buffer size: " << bufferPool->getSize() << std::endl;
+		}
+		return "Done";
 	}
 }
