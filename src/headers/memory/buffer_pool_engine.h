@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 
+#include "headers/memory/disk_interface.h"
+
 namespace sqlearn
 {
     class BufferPoolEngine {  
@@ -13,5 +15,6 @@ namespace sqlearn
         
         private:
             unsigned int size;
+            DiskInterface *disk;
     };
 }

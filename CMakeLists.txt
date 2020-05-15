@@ -20,7 +20,9 @@ add_library(sqlearn
     src/sqlearn.cpp
     src/utils.h
     src/headers/memory/buffer_pool_engine.h
+    src/headers/memory/disk_interface.h
     src/memory/buffer_pool_engine.cpp
+    src/memory/disk_interface.cpp
 )
 
 #Add an alias so that library can be used inside the build tree, e.g. when testing

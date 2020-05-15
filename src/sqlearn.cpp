@@ -20,4 +20,9 @@ namespace sqlearn
 		}
 		return "Done";
 	}
+
+	void close()
+	{
+		delete bufferPool;
+	}
 }
