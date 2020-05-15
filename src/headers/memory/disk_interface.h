@@ -22,7 +22,7 @@ namespace sqlearn
 		     * @param buffer content to be written.
 		     * @return true / false - success / failure
 		     */
-            bool write_page(int p_id, const char *buffer);
+            bool write_page(unsigned int p_id, const char *buffer);
 
             /**
 		     * Reads the given page from file.
@@ -30,7 +30,7 @@ namespace sqlearn
 		     * @param buffer content which was read.
 		     * @return true / false - success /failure
 		     */
-            bool read_page(int p_id, char *buffer);
+            bool read_page(unsigned int p_id, char *buffer);
         
         private:
         	/* db file */

@@ -21,6 +21,7 @@ add_library(sqlearn
     src/utils.h
     src/headers/memory/buffer_pool_engine.h
     src/headers/memory/disk_interface.h
+    src/headers/config.h
     src/memory/buffer_pool_engine.cpp
     src/memory/disk_interface.cpp
 )
