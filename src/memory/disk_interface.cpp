@@ -102,7 +102,6 @@ namespace sqlearn
     bool DiskInterface::read_page(unsigned int p_id, char *buffer)
     {
         unsigned int file_size;
-        char *tmp;
 
         file_size = get_file_size();
         if (p_id * PAGE_SIZE >= file_size) {

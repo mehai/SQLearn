@@ -12,6 +12,7 @@ namespace sqlearn
             BufferPoolEngine(const unsigned int size);
             ~BufferPoolEngine();
             unsigned int getSize(void);
+            DiskInterface *getDiskInterface(void);
         
         private:
             unsigned int size;

@@ -22,4 +22,9 @@ namespace sqlearn
     {
         return size;
     }
+
+    DiskInterface *BufferPoolEngine::getDiskInterface(void)
+    {
+        return disk;
+    }
 }
