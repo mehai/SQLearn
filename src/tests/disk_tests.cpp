@@ -49,7 +49,7 @@ namespace sqlearn
             return false;
         
         /* write first 3 pages */
-        int num_pages = 3;
+        const int num_pages = 3;
         char page[PAGE_SIZE  * num_pages];
         fill_random(page, PAGE_SIZE * num_pages);
 
