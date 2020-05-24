@@ -17,10 +17,28 @@ list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_SOURCE_DIR}/cmake)
 # Create target and set properties
 
 add_library(sqlearn
-    src/sqlearn.cpp
-    src/utils.h
+    # HEADERS
+    src/headers/config.h
+    # H - MEMORY
     src/headers/memory/buffer_pool_engine.h
+    src/headers/memory/disk_interface.h
+    src/headers/memory/page.h
+    # H - TESTS
+    src/headers/tests/tests.h
+    src/headers/tests/test_utils.h
+    src/headers/tests/disk_tests.h
+    src/headers/tests/buffer_tests.h
+    # SRC
+    src/sqlearn.cpp
+    # S - MEMORY
     src/memory/buffer_pool_engine.cpp
+    src/memory/disk_interface.cpp
+    src/memory/page.cpp
+    # S - TESTS
+    src/tests/tests.cpp
+    src/tests/test_utils.cpp
+    src/tests/disk_tests.cpp
+    src/tests/buffer_tests.cpp
 )
 
 #Add an alias so that library can be used inside the build tree, e.g. when testing
