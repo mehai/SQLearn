@@ -17,7 +17,7 @@ namespace sqlearn
 	std::string execute(const std::string& query)
 	{
 		if (query == "BUFFER TEST") {
-			std::cout << "buffer size: " << bufferPool->getSize() << std::endl;
+			std::cout << "buffer size: " << bufferPool->get_size() << std::endl;
 		}
 		return "Done";
 	}

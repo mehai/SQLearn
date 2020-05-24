@@ -22,6 +22,7 @@ add_library(sqlearn
     # H - MEMORY
     src/headers/memory/buffer_pool_engine.h
     src/headers/memory/disk_interface.h
+    src/headers/memory/page.h
     # H - TESTS
     src/headers/tests/tests.h
     src/headers/tests/test_utils.h
@@ -32,6 +33,7 @@ add_library(sqlearn
     # S - MEMORY
     src/memory/buffer_pool_engine.cpp
     src/memory/disk_interface.cpp
+    src/memory/page.cpp
     # S - TESTS
     src/tests/tests.cpp
     src/tests/test_utils.cpp
