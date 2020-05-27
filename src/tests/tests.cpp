@@ -30,7 +30,7 @@ namespace sqlearn
 
         /* BUFFER POOL ENGINE TESTS */
         suite[1].push_back(&buffer_test_1);
-        suite[2].push_back(&buffer_test_2);
+        suite[1].push_back(&buffer_test_2);
 
         initialized = true;
     }

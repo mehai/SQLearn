@@ -3,10 +3,23 @@
 #include <cstring>
 
 #include "headers/memory/buffer_pool_engine.h"
+#include "headers/memory/linear_replacer.h"
+
 #include "headers/config.h"
 
 namespace sqlearn
 {
+
+    BufferPoolEngine::BufferPoolEngine(const unsigned int size, const std::string& db_filename)
+    {
+        this->size = size;
+        std::cout << db_filename << std::endl;
+        this->disk = new DiskInterface(db_filename);
+
+        buffer = new Page[size];
+        replacer = new LinearReplacer(this);
+    }
+
     BufferPoolEngine::BufferPoolEngine(const unsigned int size)
     {
         this->size = size;
@@ -15,12 +28,14 @@ namespace sqlearn
         this->disk = new DiskInterface(db_filename);
 
         buffer = new Page[size];
+        replacer = new LinearReplacer(this);
     }
 
     BufferPoolEngine::~BufferPoolEngine()
     {
         delete disk;
         delete [] buffer;
+        delete replacer;
     }
 
     unsigned int BufferPoolEngine::get_size()
@@ -51,11 +66,12 @@ namespace sqlearn
         if (!disk->read_page(page_id, page_content))
             return;
 
-        /* TODO: call replacer to empty a space in the buffer */
-        /* TODO: add page to the new empty spot and in page_table*/
-        /* supposing idx is the new empty spot in buffer given by replacer */
-        int idx;
+        /* call replacer to empty a space in the buffer */
+        int idx = replacer->next_slot();
+        unsigned int former_page_id = buffer[idx].get_id();
+        page_table.erase(former_page_id);
 
+        /* add page to the new empty spot and in page_table*/
         buffer[idx].set(page_id, page_content);
         page_table[page_id] = idx;
     }
